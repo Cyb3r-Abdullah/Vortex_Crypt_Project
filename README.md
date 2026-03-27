@@ -1,10 +1,9 @@
-# Vortex_Crypt_Project
-VORTEX-CRYPT is a high-performance Python security suite designed for modern file encryption and data management. Built with a sleek, dark-themed interface, it provides a centralized "Target Injection Zone" to protect sensitive files using industry-standard cryptographic protocols.
+
 
 
 # VORTEX-CRYPT🌀
-
-A high-performance batch encryption engine designed for **Data-at-Rest Protection** and **Anti-Forensic Security**. Developed as part of a Cybersecurity research project at **Iqra University**.
+VORTEX-CRYPT is a high-performance Python security suite designed for modern file encryption and data management. Built with a sleek, dark-themed interface, it provides a centralized "Target Injection Zone" to protect sensitive files using industry-standard cryptographic protocols.
+A high-performance batch encryption engine designed for **Data-at-Rest Protection** and **Anti-Forensic Security**.
 
 ## 🛡️ Security Architecture
 - **Encryption Standard:** Fernet (AES-128 in CBC mode) for authenticated data confidentiality.
