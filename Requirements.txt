@@ -1,0 +1,4 @@
+customtkinter
+cryptography
+bcrypt
+tkinterdnd2
