@@ -7,10 +7,9 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from datetime import datetime
 
-# --- CONFIG & PROFILES ---
 CRYPT_EXT = ".crypt"
 PROFILE_FILE = "profile.json"
-DEFAULT_HASH = b'$2b$12$etosH4DNmrBEJ1C0CNzF1e.jJtlI97HeZiM2eQNAbrPcbzSCYaSmy'.decode() 
+DEFAULT_HASH = b'$2b$12$etosH4DNmrBEJ1C0CNzF1e.jJtlI97HeZiM2eQNAbrPcbzSCYaSmy'.decode() #use the bycrpt to make your hash of the password for the first login the default password is "admin"
 
 file_queue = []
 ui_elements = {}
@@ -51,11 +50,11 @@ def update_log(msg, color="#10b981"):
         lbl.pack(fill="x", padx=10, pady=1)
         ui_elements['log']._parent_canvas.yview_moveto(1.0)
 
-# We use TkinterDnD.Tk to ensure the DnD environment is properly initialized
+
 class MainApp(TkinterDnD.Tk):
     def __init__(self):
         super().__init__()
-        # Initialize CTk theme inside the DnD window
+        
         ctk.set_appearance_mode("dark")
         
         self.profile = load_profile()
@@ -64,7 +63,7 @@ class MainApp(TkinterDnD.Tk):
         self.geometry("1250x850")
         self.configure(bg="#020617")
         
-        # Register Drag and Drop on the root window
+      
         self.drop_target_register(DND_FILES)
         self.dnd_bind('<<Drop>>', self.handle_drop_event)
 
@@ -72,7 +71,7 @@ class MainApp(TkinterDnD.Tk):
         self.run_auth()
 
     def handle_drop_event(self, event):
-        # Reset visual highlight if it exists
+     
         if hasattr(self, 'queue_fm'):
             self.queue_fm.configure(border_color="#1e293b")
         self.handle_inj(event.data)
@@ -132,11 +131,11 @@ class MainApp(TkinterDnD.Tk):
 
         grid = ctk.CTkFrame(body, fg_color="transparent"); grid.pack(side="right", fill="both", expand=True)
         
-        # Injection Zone
+        
         self.queue_fm = ctk.CTkScrollableFrame(grid, label_text=" TARGET INJECTION ZONE ", fg_color="#000000", border_width=2, border_color="#1e293b")
         self.queue_fm.pack(fill="both", expand=True, pady=(0,15))
         
-        # Visual Bindings for DnD
+  
         self.queue_fm.bind('<<DragEnter>>', lambda e: self.queue_fm.configure(border_color="#10b981"))
         self.queue_fm.bind('<<DragLeave>>', lambda e: self.queue_fm.configure(border_color="#1e293b"))
 
@@ -147,7 +146,7 @@ class MainApp(TkinterDnD.Tk):
 
     def handle_inj(self, paths):
         if not paths or paths == ('',): return
-        # Properly parse DnD paths (handles curly braces and spaces)
+        
         if isinstance(paths, str):
             paths = self.tk.splitlist(paths)
             
